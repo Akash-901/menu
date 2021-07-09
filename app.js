@@ -82,10 +82,32 @@ const menu = [
 ];
 
 const sectionCenter = document.querySelector(".section-center");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
 window.addEventListener("DOMContentLoaded", function () {
   showMenuItems(menu);
 })
+
+filterBtns.forEach(function (btn) {
+  btn.addEventListener("click", function (e) {
+    const category = e.currentTarget.dataset.id;
+    const newMenu = menu.filter(function (menuItem) {
+      console.log(menuItem.category);
+      if (menuItem.category === category) {
+        return menuItem;
+      }
+    });
+    // console.log(newMenu);
+    if (category === "all") {
+      showMenuItems(menu);
+    }
+    else {
+      showMenuItems(newMenu);
+    }
+  });
+});
+
+
 function showMenuItems(menuItems) {
   let displayMenu = menuItems.map(function (item) {
     return `<article class="menu-item">
@@ -104,6 +126,5 @@ function showMenuItems(menuItems) {
 </article>`
   });
   displayMenu = displayMenu.join("");
-  console.log(displayMenu);
   sectionCenter.innerHTML = displayMenu;
 }
