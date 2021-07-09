@@ -6,7 +6,6 @@
 .main{
     width: 100%;
     margin: auto;
-    background-color: chartreuse;
     overflow: hidden;
     text-align: center;
 }
@@ -89,9 +88,7 @@ h4{
 
 @media screen and (max-width:1024px)
 {
-    .main{
-        background-color: coral;
-    }
+    
     .menu-item
     {
         display: flex;
